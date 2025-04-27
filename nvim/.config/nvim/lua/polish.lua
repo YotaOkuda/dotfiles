@@ -1,6 +1,5 @@
--- This will run last in the setup process.
--- This is just pure lua so anything that doesn't
--- fit inthe normal config locations above can go here
+-- options.lua の読み込み
+require "user.options"
 
 -- lua/polish.lua
 vim.keymap.set("n", "<Space>fb", function()

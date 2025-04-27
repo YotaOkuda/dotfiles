@@ -17,18 +17,3 @@ end
 
 require "lazy_setup"
 require "polish"
-
--- ウィンドウズでもクリップボードを使う
-vim.g.clipboard = {
-  nama = 'win32yank-wsl',
-  copy = {
-    ['+'] = 'clip.exe',
-    ['*'] = 'clip.exe',
-  },
-  paste = {
-    ['+'] = 'powershell.exe -c Get-Clipboard',
-    ['*'] = 'powershell.exe -c Get-Clipboard',
-  },
-  cache_enabled = false,
-}
-vim.opt.clipboard:append {'unnamed', 'unnamedplus'}
