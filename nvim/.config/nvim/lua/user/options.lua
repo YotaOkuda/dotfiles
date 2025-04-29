@@ -25,3 +25,6 @@ vim.g.clipboard = {
   cache_enabled = false,
 }
 vim.opt.clipboard:append { "unnamed", "unnamedplus" }
+
+-- Terminal をデフォルトでインサートモードにする
+-- autocmd TermOpen * startinsert

@@ -1,5 +1,5 @@
--- options.lua の読み込み
 require "user.options"
+require "user.keymaps"
 
 -- lua/polish.lua
 vim.keymap.set("n", "<Space>fb", function()
@@ -12,3 +12,13 @@ vim.keymap.set("n", "<Space>fb", function()
     previewer = true,
   }
 end, { desc = "Telescope File Browser" })
+
+-- 自動リロード
+vim.api.nvim_create_autocmd("BufWritePost", {
+  pattern = { "*.lua" },
+  callback = function(args)
+    local fp = args.file
+    if fp:match "%.lua$" then vim.cmd("luafile" .. fp) end
+    print("Reloaded" .. fp)
+  end,
+})
