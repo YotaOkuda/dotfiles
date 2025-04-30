@@ -1,5 +1,6 @@
 require "user.options"
 require "user.keymaps"
+require "user.autocommands"
 
 -- lua/polish.lua
 vim.keymap.set("n", "<Space>fb", function()
