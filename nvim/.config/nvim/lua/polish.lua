@@ -1,6 +1,6 @@
 require "user.options"
 require "user.keymaps"
-require "user.autocommands"
+require "user.autocmds"
 
 -- lua/polish.lua
 vim.keymap.set("n", "<Space>fb", function()
@@ -13,13 +13,3 @@ vim.keymap.set("n", "<Space>fb", function()
     previewer = true,
   }
 end, { desc = "Telescope File Browser" })
-
--- luaファイルの自動リロード
-vim.api.nvim_create_autocmd("BufWritePost", {
-  pattern = { "*.lua" },
-  callback = function(args)
-    local fp = args.file
-    if fp:match "%.lua$" then vim.cmd("luafile" .. fp) end
-    print("Reloaded" .. fp)
-  end,
-})
