@@ -13,7 +13,7 @@ vim.keymap.set("n", "<Space>fb", function()
   }
 end, { desc = "Telescope File Browser" })
 
--- 自動リロード
+-- luaファイルの自動リロード
 vim.api.nvim_create_autocmd("BufWritePost", {
   pattern = { "*.lua" },
   callback = function(args)
