@@ -11,20 +11,31 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   command = [[%s/\r\+$//e]],
 })
 
--- ウィンドウズでもクリップボードを使う
-vim.g.clipboard = {
-  nama = "win32yank-wsl",
-  copy = {
-    ["+"] = "clip.exe",
-    ["*"] = "clip.exe",
-  },
-  paste = {
-    ["+"] = "powershell.exe -c Get-Clipboard",
-    ["*"] = "powershell.exe -c Get-Clipboard",
-  },
-  cache_enabled = false,
-}
-vim.opt.clipboard:append { "unnamed", "unnamedplus" }
-
--- Terminal をデフォルトでインサートモードにする
--- autocmd TermOpen * startinsert
+-- OSに応じたクリップボード設定
+if vim.fn.has "mac" == 1 then
+  vim.g.clipboard = {
+    name = "macOS-clipboard",
+    copy = {
+      ["+"] = "pbcopy",
+      ["*"] = "pbcopy",
+    },
+    paste = {
+      ["+"] = "pbpaste",
+      ["*"] = "pbpaste",
+    },
+    cache_enabled = 0,
+  }
+elseif vim.fn.has "wsl" == 1 then
+  vim.g.clipboard = {
+    name = "win32yank-wsl",
+    copy = {
+      ["+"] = "clip.exe",
+      ["*"] = "clip.exe",
+    },
+    paste = {
+      ["+"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+      ["*"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+    },
+    cache_enabled = 0,
+  }
+end
