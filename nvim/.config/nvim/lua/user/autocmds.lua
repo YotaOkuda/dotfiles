@@ -26,3 +26,4 @@ vim.api.nvim_create_autocmd({ "TermClose", "BufWritePost" }, {
   end,
 })
 -- test
+-- test
