@@ -13,6 +13,7 @@ return {
       visible = true, -- 隠しファイルを表示する
       hide_dotfiles = false, -- ドットファイルを隠さない
       hide_gitignored = false, -- .gitignoreに記載されているファイルを隠さない
+      use_libuv_file_watcher = true,
     }
 
     -- ダッシュボードを維持するための設定

@@ -13,31 +13,16 @@ vim.api.nvim_create_autocmd("VimEnter", {
   command = "Neotree toggle",
 })
 ]]
-
--- 共通のリフレッシュ関数
-local function refresh_git_status()
-  if package.loaded["neo-tree.sources.git_status"] then
-    -- neo-tree の manager モジュール名が違う場合は適宜読み替えてください
-    local manager = require "neo-tree.sources.manager"
-    local state = manager.get_state "git_status"
-    require("neo-tree.sources.git_status.commands").refresh(state)
-  end
-end
-
--- 1. ToggleTerm Open/Close の User イベントをキャッチ
-vim.api.nvim_create_autocmd("User", {
-  pattern = { "ToggleTermOpen", "ToggleTermClose" },
-  callback = refresh_git_status,
-})
-
--- 2. Git のインデックス (.git/index) が書き換わったとき
-vim.api.nvim_create_autocmd("BufWritePost", {
-  pattern = ".git/index",
-  callback = refresh_git_status,
-})
-
--- ファイル保存全般やフォーカス復帰時
-vim.api.nvim_create_autocmd({ "BufWritePost", "FocusGained" }, {
+-- Neo-tree のソース管理モジュールを経由して state を取得
+local manager = require "neo-tree.sources.manager"
+-- TermClose, BufWritePost 時にneo-treeをリフレッシュ（適切なアイコンが表示される）
+vim.api.nvim_create_autocmd({ "TermClose", "BufWritePost" }, {
   pattern = "*",
-  callback = refresh_git_status,
+  callback = function()
+    if package.loaded["neo-tree.sources.git_status"] then
+      local gs = manager.get_state "git_status"
+      require("neo-tree.sources.git_status.commands").refresh(gs)
+    end
+  end,
 })
+-- test
