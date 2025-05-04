@@ -18,7 +18,7 @@ vim.api.nvim_create_autocmd("VimEnter", {
 local function refresh_git_status()
   if package.loaded["neo-tree.sources.git_status"] then
     -- neo-tree の manager モジュール名が違う場合は適宜読み替えてください
-    local manager = require "neo-tree.sources.git_status.manager"
+    local manager = require "neo-tree.sources.manager"
     local state = manager.get_state "git_status"
     require("neo-tree.sources.git_status.commands").refresh(state)
   end
