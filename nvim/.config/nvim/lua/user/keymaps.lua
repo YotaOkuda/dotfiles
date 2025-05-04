@@ -15,6 +15,18 @@ vim.api.nvim_create_autocmd("TermOpen", {
   callback = function(args)
     local opts = { buffer = args.buf, silent = true }
     map("t", "<Esc>", "<C-\\><C-n>", opts)
-    map("n", "q", "<cmd>ToggleTerm<CR>", opts)
+
+    local manager = require "neo-tree.sources.manager"
+    -- ToggleTermのキーマッピングを更新
+    map("n", "q", function()
+      vim.cmd "ToggleTerm"
+      -- 次のイベントループで Neo-Tree の git_status をリフレッシュ
+      vim.schedule(function()
+        if package.loaded["neo-tree.sources.git_status"] then
+          local gs = manager.get_state "git_status"
+          require("neo-tree.sources.git_status.commands").refresh(gs)
+        end
+      end)
+    end, opts)
   end,
 })
