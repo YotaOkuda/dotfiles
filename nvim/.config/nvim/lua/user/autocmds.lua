@@ -20,3 +20,9 @@ vim.api.nvim_create_autocmd({ "BufWritePost" }, {
     end
   end,
 })
+
+-- コメント行の継続を無効化
+vim.api.nvim_create_autocmd("FileType", {
+  pattern = "*",
+  callback = function() vim.opt.formatoptions:remove { "c", "r", "o" } end,
+})
