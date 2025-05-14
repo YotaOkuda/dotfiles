@@ -15,26 +15,20 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 if vim.fn.has "mac" == 1 then
   vim.g.clipboard = {
     name = "macOS-clipboard",
-    copy = {
-      ["+"] = "pbcopy",
-      ["*"] = "pbcopy",
-    },
-    paste = {
-      ["+"] = "pbpaste",
-      ["*"] = "pbpaste",
-    },
+    copy = { ["+"] = "pbcopy", ["*"] = "pbcopy" },
+    paste = { ["+"] = "pbpaste", ["*"] = "pbpaste" },
     cache_enabled = 0,
   }
 elseif vim.fn.has "wsl" == 1 then
   vim.g.clipboard = {
     name = "win32yank-wsl",
     copy = {
-      ["+"] = "clip.exe",
-      ["*"] = "clip.exe",
+      ["+"] = "/mnt/c/Users/yotao/tools/win32yank/win32yank.exe -i --crlf",
+      ["*"] = "/mnt/c/Users/yotao/tools/win32yank/win32yank.exe -i --crlf",
     },
     paste = {
-      ["+"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
-      ["*"] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+      ["+"] = "/mnt/c/Users/yotao/tools/win32yank/win32yank.exe -o --lf",
+      ["*"] = "/mnt/c/Users/yotao/tools/win32yank/win32yank.exe -o --lf",
     },
     cache_enabled = 0,
   }
