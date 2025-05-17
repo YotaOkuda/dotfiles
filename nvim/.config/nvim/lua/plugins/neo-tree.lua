@@ -56,7 +56,7 @@ return {
                 break
               end
             end
-          end, 50)
+          end, 100)
         end, 100)
       end,
     })
