@@ -6,10 +6,12 @@ local popup_width = 250
 
 local volume_percent = sbar.add("item", "widgets.volume1", {
 	position = "right",
+	padding_left = 5,
 	icon = { drawing = false },
 	label = {
 		string = "??%",
-		padding_left = -1,
+		padding_left = 0,
+		padding_right = 0,
 		font = { family = settings.font.numbers },
 		color = colors.tn_green,
 	},
@@ -17,7 +19,8 @@ local volume_percent = sbar.add("item", "widgets.volume1", {
 
 local volume_icon = sbar.add("item", "widgets.volume2", {
 	position = "right",
-	padding_right = -1,
+	padding_left = 3,
+	padding_right = 0,
 	icon = {
 		string = icons.volume._100,
 		width = 0,
@@ -166,3 +169,9 @@ volume_icon:subscribe("mouse.scrolled", volume_scroll)
 volume_percent:subscribe("mouse.clicked", volume_toggle_details)
 volume_percent:subscribe("mouse.exited.global", volume_collapse_details)
 volume_percent:subscribe("mouse.scrolled", volume_scroll)
+
+--add padding
+sbar.add("item", {
+	position = "right",
+	width = 3,
+})

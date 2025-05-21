@@ -31,7 +31,7 @@ sbar.default({
 	background = {
 		height = 30,
 		corner_radius = 10,
-		border_width = 1,
+		border_width = 2,
 		border_color = colors.yellow,
 		image = {
 			corner_radius = 0,

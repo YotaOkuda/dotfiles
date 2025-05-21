@@ -12,12 +12,12 @@ local cal_clock = sbar.add("item", {
 		padding_right = 0,
 		align = "right",
 		font = { family = settings.font.numbers },
-		y_offset = 6,
+		y_offset = 5,
 	},
 	position = "right",
 	update_freq = 1,
-	padding_left = -43,
-	padding_right = 12,
+	padding_left = 0,
+	padding_right = 13,
 })
 
 local cal_day_of_week = sbar.add("item", {
@@ -26,15 +26,15 @@ local cal_day_of_week = sbar.add("item", {
 	},
 	label = {
 		color = colors.tn_blue,
-		padding_right = 0,
-		align = "center",
+		padding_right = -2,
+		align = "right",
 		font = { family = settings.font.numbers },
-		y_offset = -6,
+		y_offset = -5,
 	},
 	position = "right",
 	update_freq = 1,
 	padding_left = 0,
-	padding_right = 0,
+	padding_right = -28,
 })
 
 local cal_month = sbar.add("item", {
@@ -44,14 +44,14 @@ local cal_month = sbar.add("item", {
 	label = {
 		color = colors.tn_blue,
 		padding_right = 0,
-		align = "center",
+		align = "right",
 		font = { family = settings.font.numbers },
-		y_offset = 6,
+		y_offset = 5,
 		padding_left = 0,
 	},
 	position = "right",
 	update_freq = 1,
-	padding_left = -24,
+	padding_left = -20,
 	padding_right = 5,
 })
 
@@ -64,12 +64,12 @@ local cal_day = sbar.add("item", {
 		padding_right = 0,
 		align = "center",
 		font = { family = settings.font.numbers },
-		y_offset = -6,
+		y_offset = -5,
 	},
 	width = 32,
 	position = "right",
 	update_freq = 1,
-	padding_left = 3,
+	padding_left = 0,
 	padding_right = 0,
 })
 
@@ -77,7 +77,7 @@ local cal_day = sbar.add("item", {
 sbar.add("bracket", { cal_clock.name, cal_month.name, cal_day_of_week.name, cal_day.name }, {
 	background = {
 		color = colors.tn_black3,
-		height = 34,
+		height = 30,
 		border_color = colors.tn_blue,
 	},
 })
@@ -102,4 +102,8 @@ cal_day:subscribe({ "forced", "routine", "system_woke" }, function(env)
 end)
 
 -- add width
-sbar.add("item", { position = "right", width = 6 })
+---add padding
+sbar.add("item", {
+	position = "right",
+	width = 3,
+})
