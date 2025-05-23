@@ -1,5 +1,6 @@
 return {
 	text = "SF Pro", -- Used for text
+	-- test = "JetBrainsMono Nerd Font",
 	numbers = "SF Mono", -- Used for numbers
 
 	-- Unified font style map

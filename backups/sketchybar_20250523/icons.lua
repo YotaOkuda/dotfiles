@@ -5,25 +5,12 @@ local icons = {
 		plus = "􀅼",
 		loading = "􀖇",
 		apple = "􀣺",
+		-- paw = utf8.char(0xf1b0),
 		gear = "􀍟",
 		cpu = "􀫥",
 		clipboard = "􀉄",
-		music = "􀑪",
-		aerospace = "􀏝",
-		timer = "􀐱",
-		todo = {
-			icon = "􀓞",
-			new = "􀁌",
-			check = "􀁢",
-		},
+		memory = "󰠷",
 
-		chevron = {
-			left = "􀆉",
-			right = "􀆊",
-		},
-		mail = {
-			unread = "􀍛",
-		},
 		switch = {
 			on = "􁏮",
 			off = "􁏯",
@@ -53,11 +40,7 @@ local icons = {
 		media = {
 			back = "􀊊",
 			forward = "􀊌",
-			skip = "􀊐",
 			play_pause = "􀊈",
-			play = "􀊄",
-			pause = "􀊅",
-			reset = "􀍿",
 		},
 	},
 

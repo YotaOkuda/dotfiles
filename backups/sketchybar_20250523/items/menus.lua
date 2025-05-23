@@ -21,8 +21,10 @@ for i = 1, max_items, 1 do
 		drawing = false,
 		icon = { drawing = false },
 		label = {
+			color = colors.accent1,
 			font = {
 				style = settings.font.style_map[i == 1 and "Heavy" or "Semibold"],
+				size = 12.0,
 			},
 			padding_left = 6,
 			padding_right = 6,
@@ -34,7 +36,11 @@ for i = 1, max_items, 1 do
 end
 
 sbar.add("bracket", { "/menu\\..*/" }, {
-	background = { color = colors.bg1 },
+	background = {
+		color = colors.tn_black3,
+		border_color = colors.accent3,
+		border_width = 2,
+	},
 })
 
 local menu_padding = sbar.add("item", "menu.padding", {
@@ -45,6 +51,9 @@ local menu_padding = sbar.add("item", "menu.padding", {
 local function update_menus(env)
 	sbar.exec("$CONFIG_DIR/helpers/menus/bin/menus -l", function(menus)
 		sbar.set("/menu\\..*/", { drawing = false })
+		sbar.set("/space\\..*/", { drawing = false })
+		sbar.set("front_app", { drawing = false })
+
 		menu_padding:set({ drawing = true })
 		id = 1
 		for menu in string.gmatch(menus, "[^\r\n]+") do
@@ -69,8 +78,10 @@ space_menu_swap:subscribe("swap_menus_and_spaces", function(env)
 		sbar.set("front_app", { drawing = true })
 	else
 		menu_watcher:set({ updates = true })
-		sbar.set("/space\\..*/", { drawing = false })
-		sbar.set("front_app", { drawing = false })
+
+		-- Disable the following lines to avoid sticking the front_app after switching
+		-- sbar.set("/space\\..*/", { drawing = false })
+		-- sbar.set("front_app", { drawing = false })
 		update_menus()
 	end
 end)

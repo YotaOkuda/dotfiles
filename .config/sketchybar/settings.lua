@@ -1,6 +1,14 @@
 return {
-	paddings = 6,
-	group_paddings = 2,
+	paddings = 4,
+	group_paddings = 5,
+	icon = {
+		padding_left = 7,
+		padding_right = 8,
+	},
+	label = {
+		padding_left = 0,
+		padding_right = 8,
+	},
 
 	icons = "sf-symbols", -- alternatively available: NerdFont
 
@@ -9,14 +17,14 @@ return {
 
 	-- Alternatively, this is a font config for JetBrainsMono Nerd Font
 	-- font = {
-	--   text = "JetBrainsMono Nerd Font", -- Used for text
-	--   numbers = "JetBrainsMono Nerd Font", -- Used for numbers
-	--   style_map = {
-	--     ["Regular"] = "Regular",
-	--     ["Semibold"] = "Medium",
-	--     ["Bold"] = "SemiBold",
-	--     ["Heavy"] = "Bold",
-	--     ["Black"] = "ExtraBold",
-	--   },
+	-- 	text = "BerkeleyMono Nerd Font", -- Used for text
+	-- 	numbers = "BerkeleyMono Nerd Font", -- Used for numbers
+	-- 	style_map = {
+	-- 		["Regular"] = "Regular",
+	-- 		-- ["Semibold"] = "Medium",
+	-- 		-- ["Bold"] = "SemiBold",
+	-- 		["Bold"] = "Bold",
+	-- 		-- ["Black"] = "ExtraBold",
+	-- 	},
 	-- },
 }

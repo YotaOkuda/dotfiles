@@ -1,22 +1,21 @@
 local colors = require("colors")
 local settings = require("settings")
+local app_icons = require("helpers.app_icons")
 
 local front_app = sbar.add("item", "front_app", {
-  display = "active",
-  icon = { drawing = false },
-  label = {
-    font = {
-      style = settings.font.style_map["Black"],
-      size = 12.0,
-    },
-  },
-  updates = true,
+	display = "active",
+	icon = {
+		font = "sketchybar-app-font:Regular:16.0",
+	},
+	updates = true,
 })
 
 front_app:subscribe("front_app_switched", function(env)
-  front_app:set({ label = { string = env.INFO } })
-end)
-
-front_app:subscribe("mouse.clicked", function(env)
-  sbar.trigger("swap_menus_and_spaces")
+	print("Front app switched to:", env.INFO)
+	local lookup = app_icons[env.INFO]
+	local icon = ((lookup == nil) and app_icons["default"] or lookup)
+	front_app:set({
+		icon = "" .. icon,
+		label = { string = env.INFO },
+	})
 end)

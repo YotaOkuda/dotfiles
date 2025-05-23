@@ -4,106 +4,74 @@ local settings = require("settings")
 
 local popup_width = 250
 
-local volume_percent = sbar.add("item", "widgets.volume1", {
+local volume = sbar.add("item", "widgets.volume", {
 	position = "right",
-	icon = { drawing = false },
-	label = {
-		string = "??%",
-		padding_left = 0,
-		-- padding_right = 0,
-		font = { family = settings.font.numbers },
-		color = colors.tn_green,
-	},
-})
-
-local volume_icon = sbar.add("item", "widgets.volume2", {
-	position = "right",
-	padding_right = 0,
-	-- padding_left = 0,
 	icon = {
 		string = icons.volume._100,
-		width = 0,
-		align = "left",
-		font = {
-			style = settings.font.style_map["Regular"],
-			size = 14.0,
-		},
 	},
 	label = {
-		color = colors.green,
-		width = 25,
-		align = "left",
-		font = {
-			style = settings.font.style_map["Regular"],
-			size = 14.0,
-		},
+		string = "??%",
+		font = { family = settings.font.numbers },
+		width = 0,
 	},
 })
 
 local volume_bracket = sbar.add("bracket", "widgets.volume.bracket", {
-	volume_icon.name,
-	volume_percent.name,
+	volume.name,
 }, {
-	background = { color = colors.tn_black3, border_color = colors.tn_green, border_width = 2 },
 	popup = {
 		align = "center",
-		background = { color = colors.tn_black3, border_color = colors.tn_green, border_width = 2 },
+		background = {
+			corner_radius = 12,
+		},
 	},
 })
 
--- sbar.add("item", "widgets.volume.padding", {
--- 	position = "right",
--- 	width = settings.group_paddings,
--- })
-
--- add width
-sbar.add("item", { position = "right", width = 6 })
+sbar.add("item", "widgets.volume.padding", {
+	position = "right",
+	width = settings.group_paddings,
+})
 
 local volume_slider = sbar.add("slider", popup_width, {
 	position = "popup." .. volume_bracket.name,
 	slider = {
-		highlight_color = colors.blue,
+		highlight_color = colors.fg_highlight,
 		background = {
 			height = 6,
 			corner_radius = 3,
-			color = colors.gray,
+			color = colors.bg2,
 		},
 		knob = {
-			string = "",
+			string = "􀀁",
 			drawing = true,
 		},
-	},
-	background = {
-		color = colors.tn_green,
-		height = 2,
-		y_offset = -20,
-		border_color = colors.tn_green,
-		border_width = 1,
 	},
 	click_script = 'osascript -e "set volume output volume $PERCENTAGE"',
 })
 
-volume_percent:subscribe("volume_change", function(env)
-	local volume = tonumber(env.INFO)
+volume:subscribe("volume_change", function(env)
+	local vol = tonumber(env.INFO)
 	local icon = icons.volume._0
-	if volume > 60 then
+	if vol > 60 then
 		icon = icons.volume._100
-	elseif volume > 30 then
+	elseif vol > 30 then
 		icon = icons.volume._66
-	elseif volume > 10 then
+	elseif vol > 10 then
 		icon = icons.volume._33
-	elseif volume > 0 then
+	elseif vol > 0 then
 		icon = icons.volume._10
 	end
 
 	local lead = ""
-	if volume < 10 then
+	if vol < 10 then
 		lead = "0"
 	end
 
-	volume_icon:set({ label = icon, icon = { color = colors.tn_black3 } })
-	volume_percent:set({ label = lead .. volume .. "%" })
-	volume_slider:set({ slider = { percentage = volume } })
+	volume:set({
+		icon = { string = icon },
+		label = { string = lead .. vol .. "%" },
+	})
+	volume_slider:set({ slider = { percentage = vol } })
 end)
 
 local function volume_collapse_details()
@@ -128,26 +96,25 @@ local function volume_toggle_details(env)
 		sbar.exec("SwitchAudioSource -t output -c", function(result)
 			current_audio_device = result:sub(1, -2)
 			sbar.exec("SwitchAudioSource -a -t output", function(available)
-				current = current_audio_device
-				local color = colors.tn_cyan
+				local current = current_audio_device
 				local counter = 0
+				local selected = false
 
 				for device in string.gmatch(available, "[^\r\n]+") do
-					local color = colors.tn_green
 					if current == device then
-						color = colors.tn_cyan
+						selected = true
 					end
 					sbar.add("item", "volume.device." .. counter, {
 						position = "popup." .. volume_bracket.name,
 						width = popup_width,
 						align = "center",
-						label = { string = device, color = color },
+						label = { string = device, highlight = selected },
 						click_script = 'SwitchAudioSource -s "'
-							.. device
-							.. '" && sketchybar --set /volume.device\\.*/ label.color='
-							.. colors.grey
-							.. " --set $NAME label.color="
-							.. colors.white,
+								.. device
+								.. '" && sketchybar --set /volume.device\\.*/ label.color='
+								.. colors.grey
+								.. " --set $NAME label.color="
+								.. colors.white,
 					})
 					counter = counter + 1
 				end
@@ -163,8 +130,21 @@ local function volume_scroll(env)
 	sbar.exec('osascript -e "set volume output volume (output volume of (get volume settings) + ' .. delta .. ')"')
 end
 
-volume_icon:subscribe("mouse.clicked", volume_toggle_details)
-volume_icon:subscribe("mouse.scrolled", volume_scroll)
-volume_percent:subscribe("mouse.clicked", volume_toggle_details)
-volume_percent:subscribe("mouse.exited.global", volume_collapse_details)
-volume_percent:subscribe("mouse.scrolled", volume_scroll)
+volume:subscribe("mouse.clicked", volume_toggle_details)
+volume:subscribe("mouse.entered", function()
+	sbar.animate("tanh", 30, function()
+		volume:set({
+			label = { width = "dynamic" },
+		})
+	end)
+end)
+
+volume:subscribe("mouse.exited", function()
+	sbar.animate("tanh", 30, function()
+		volume:set({
+			label = { width = 0 },
+		})
+	end)
+end)
+volume:subscribe("mouse.scrolled", volume_scroll)
+volume:subscribe("mouse.exited.global", volume_collapse_details)
