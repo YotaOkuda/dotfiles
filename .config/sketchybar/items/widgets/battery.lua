@@ -2,6 +2,9 @@ local icons = require("icons")
 local colors = require("colors")
 local settings = require("settings")
 
+-- Padding item required because of bracket
+-- sbar.add("item", { position = "right", width = settings.group_paddings })
+
 local battery = sbar.add("item", "widgets.battery", {
 	position = "right",
 	icon = { string = icons.cpu },

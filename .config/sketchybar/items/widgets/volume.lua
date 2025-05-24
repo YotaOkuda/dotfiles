@@ -4,6 +4,10 @@ local settings = require("settings")
 
 local popup_width = 250
 
+-- Padding item required because of bracket
+-- sbar.add("item", { position = "right", width = settings.group_paddings })
+sbar.add("item", { position = "right", width = 4 })
+
 local volume = sbar.add("item", "widgets.volume", {
 	position = "right",
 	icon = {
@@ -25,11 +29,6 @@ local volume_bracket = sbar.add("bracket", "widgets.volume.bracket", {
 			corner_radius = 12,
 		},
 	},
-})
-
-sbar.add("item", "widgets.volume.padding", {
-	position = "right",
-	width = settings.group_paddings,
 })
 
 local volume_slider = sbar.add("slider", popup_width, {

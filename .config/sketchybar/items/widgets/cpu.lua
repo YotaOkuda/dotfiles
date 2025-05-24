@@ -8,7 +8,12 @@ sbar.exec("killall cpu_load >/dev/null; $CONFIG_DIR/helpers/event_providers/cpu_
 
 local cpu = sbar.add("item", {
 	position = "right",
-	icon = { string = icons.cpu, color = colors.fg },
+	icon = {
+		string = icons.cpu,
+		color = colors.fg,
+		-- align = "center",
+		padding_left = 6,
+	},
 	label = {
 		string = "??%",
 		font = {
@@ -17,9 +22,9 @@ local cpu = sbar.add("item", {
 		color = colors.fg,
 		width = 0,
 	},
-	background = {
-		color = colors.with_alpha(colors.bg, 1),
-	},
+	-- background = {
+	-- 	color = colors.with_alpha(colors.bg, 1),
+	-- },
 })
 
 cpu:subscribe("cpu_update", function(env)
