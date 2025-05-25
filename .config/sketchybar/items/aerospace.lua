@@ -13,6 +13,7 @@ local toggle_windows = sbar.add("item", {
 	icon = {
 		string = icons.aerospace,
 		padding_right = 8,
+		padding_left = 6, -- for survice mode layout
 	},
 	label = { width = 0, y_offset = 0.5, padding_right = 15 },
 	background = {
@@ -29,7 +30,7 @@ toggle_windows:subscribe("mouse.entered", function()
 			label = { string = is_show_windows and icons.chevron.left or icons.chevron.right, width = "dynamic" },
 			background = {
 				color = colors.with_alpha(colors.bg, 1),
-				-- border_width = 2,
+				border_width = 2,
 			},
 		})
 	end)
@@ -41,7 +42,7 @@ toggle_windows:subscribe("mouse.exited", function()
 			label = { width = 0 },
 			background = {
 				color = colors.with_alpha(colors.bg, 0),
-				-- border_width = 0,
+				border_width = 0,
 			},
 		})
 	end)
@@ -52,13 +53,13 @@ toggle_windows:subscribe("aerospace_mode_change", function(ENV)
 	sbar.animate("tanh", 10, function()
 		if mode ~= "main" then
 			toggle_windows:set({
-				icon = {
-					color = colors.yellow,
-				},
+				-- icon = {
+				-- 	color = colors.yellow,
+				-- },
 				background = {
 					-- color = colors.with_alpha(colors.yellow, 1),
-					-- border_color = colors.white,
-					-- border_width = 2,
+					border_color = colors.white,
+					border_width = 2,
 				},
 			})
 		else

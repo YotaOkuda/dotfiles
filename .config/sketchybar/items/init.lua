@@ -1,4 +1,5 @@
 -- From left-most to right
+-- require("items.aerospace_mode_indicator")
 require("items.aerospace")
 require("items.front_app")
 require("items.media")
