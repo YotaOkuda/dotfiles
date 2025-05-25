@@ -84,7 +84,7 @@ local workspaces = {}
 -- except for the focused workspace which shows a placeholder
 local function updateWindows(workspace_index)
 	local get_windows =
-			string.format("aerospace list-windows --workspace %s --format '%%{app-name}' --json", workspace_index)
+		string.format("aerospace list-windows --workspace %s --format '%%{app-name}' --json", workspace_index)
 	sbar.exec(get_windows, function(open_windows)
 		local icon_line = ""
 		local no_app = true
@@ -166,7 +166,7 @@ for workspace_index = 1, max_workspaces do
 				icon = { highlight = is_focused },
 				label = { highlight = is_focused },
 				background = {
-					-- border_width = is_focused and 2 or 0,
+					border_width = is_focused and 2 or 0,
 				},
 			})
 		end)
@@ -187,7 +187,7 @@ for workspace_index = 1, max_workspaces do
 			workspace:set({
 				icon = { highlight = true },
 				label = { highlight = true },
-				-- background = { border_width = 2 },
+				background = { border_width = 2 },
 			})
 		end)
 	end)
@@ -213,7 +213,7 @@ for workspace_index = 1, max_workspaces do
 		workspaces[tonumber(focused_workspace)]:set({
 			icon = { highlight = true },
 			label = { highlight = true },
-			-- background = { border_width = 2 },
+			background = { border_width = 3 },
 		})
 	end)
 end
