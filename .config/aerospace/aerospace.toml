@@ -12,11 +12,12 @@ after-startup-command = ['exec-and-forget borders' , 'exec-and-forget sketchybar
 
 # Notify Sketchybar about workspace change
 exec-on-workspace-change = ['/bin/bash', '-c',
-    'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE'
+    'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE WORKSPACE=$AEROSPACE_WINDOW_WORKSPACE'
+    'sketchybar --trigger aerospace_workspace_change WORKSPACE=$AEROSPACE_WINDOW_WORKSPACE'
 ]
 
 # Start AeroSpace at login
-start-at-login = false
+start-at-login = true
 
 # Normalizations. See: https://nikitabobko.github.io/AeroSpace/guide#normalization
 enable-normalization-flatten-containers = true
@@ -155,9 +156,12 @@ alt-y = 'workspace Y'
 alt-z = 'workspace Z'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
-alt-shift-1 = 'move-node-to-workspace 1 --focus-follows-window'
-alt-shift-2 = 'move-node-to-workspace 2 --focus-follows-window'
-alt-shift-3 = 'move-node-to-workspace 3 --focus-follows-window'
+alt-shift-1 = [
+    'move-node-to-workspace 1 --focus-follows-window',
+    'exec-and-forget sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=1' 
+]
+alt-shift-2 = ['move-node-to-workspace 2 --focus-follows-window']
+alt-shift-3 = ['move-node-to-workspace 3 --focus-follows-window']
 alt-shift-4 = 'move-node-to-workspace 4 --focus-follows-window'
 alt-shift-5 = 'move-node-to-workspace 5 --focus-follows-window'
 alt-shift-6 = 'move-node-to-workspace 6 --focus-follows-window'
@@ -216,3 +220,26 @@ alt-shift-h = ['join-with left', 'mode main']
 alt-shift-j = ['join-with down', 'mode main']
 alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
+
+
+# ------ FLOATING --------
+# Apple Stuff
+[[on-window-detected]]
+if.app-id = 'com.apple.systempreferences'
+run = 'layout floating'
+[[on-window-detected]]
+if.app-id = 'com.apple.finder'
+run = 'layout floating'
+[[on-window-detected]]
+if.app-id = 'com.apple.Image_Capture'
+run = 'layout floating'
+[[on-window-detected]]
+if.app-id = 'com.apple.launchpad.launcher'
+run = 'layout floating'
+[[on-window-detected]]
+if.app-id = 'com.apple.exposelauncher'
+run = 'layout floating'
+[[on-window-detected]]
+if.app-id = 'com.apple.AppStore'
+run = 'layout floating'
+

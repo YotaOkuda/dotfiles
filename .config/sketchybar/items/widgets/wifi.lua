@@ -3,7 +3,11 @@ local colors = require("colors")
 local settings = require("settings")
 
 -- Padding item required because of bracket
-sbar.add("item", { position = "right", width = settings.group_paddings })
+sbar.add("item", {
+	position = "right",
+	width = settings.group_paddings,
+	background = { drawing = false },
+})
 
 -- Execute the event provider binary which provides the event "network_update"
 -- for the network interface "en0", which is fired every 2.0 seconds.

@@ -84,7 +84,7 @@ local workspaces = {}
 -- except for the focused workspace which shows a placeholder
 local function updateWindows(workspace_index)
 	local get_windows =
-		string.format("aerospace list-windows --workspace %s --format '%%{app-name}' --json", workspace_index)
+			string.format("aerospace list-windows --workspace %s --format '%%{app-name}' --json", workspace_index)
 	sbar.exec(get_windows, function(open_windows)
 		local icon_line = ""
 		local no_app = true
@@ -93,14 +93,15 @@ local function updateWindows(workspace_index)
 			local app = open_window["app-name"]
 			-- Fallback to default icon if app-specific icon isn't found
 			local lookup = app_icons[app]
-			local icon = ((lookup == nil) and app_icons["default"] or lookup)
+			-- local icon = ((lookup == nil) and app_icons["default"] or lookup)
+			local icon = ((lookup == nil) and icons.apple or lookup)
 			icon_line = icon_line .. " " .. icon
 		end
 		sbar.animate("tanh", 10, function()
 			if no_app then
 				if workspace_index == focused_workspace_index then
 					-- Show placeholder for empty focused workspace
-					icon_line = " —"
+					icon_line = "—"
 					workspaces[workspace_index]:set({
 						icon = { drawing = true },
 						label = { drawing = true, string = icon_line },
@@ -160,6 +161,7 @@ for workspace_index = 1, max_workspaces do
 	workspace:subscribe("aerospace_workspace_change", function(env)
 		focused_workspace_index = tonumber(env.FOCUSED_WORKSPACE)
 		local is_focused = focused_workspace_index == workspace_index
+		updateWindows(workspace_index)
 
 		sbar.animate("tanh", 10, function()
 			workspace:set({
@@ -172,9 +174,9 @@ for workspace_index = 1, max_workspaces do
 		end)
 	end)
 
-	workspace:subscribe("aerospace_focus_change", function()
-		updateWindows(workspace_index)
-	end)
+	-- workspace:subscribe("aerospace_focus_change", function(env)
+	-- 	updateWindows(workspace_index)
+	-- end)
 
 	-- Allow workspace switching via click
 	workspace:subscribe("mouse.clicked", function()
