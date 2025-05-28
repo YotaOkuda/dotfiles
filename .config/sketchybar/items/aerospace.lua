@@ -93,8 +93,8 @@ local function updateWindows(workspace_index)
 			local app = open_window["app-name"]
 			-- Fallback to default icon if app-specific icon isn't found
 			local lookup = app_icons[app]
-			-- local icon = ((lookup == nil) and app_icons["default"] or lookup)
-			local icon = ((lookup == nil) and icons.apple or lookup)
+			local icon = ((lookup == nil) and app_icons["Default"] or lookup)
+			-- local icon = ((lookup == nil) and icons.apple or lookup)
 			icon_line = icon_line .. " " .. icon
 		end
 		sbar.animate("tanh", 10, function()
@@ -172,6 +172,10 @@ for workspace_index = 1, max_workspaces do
 				},
 			})
 		end)
+	end)
+
+	workspace:subscribe("front_app_switched", function(env)
+		updateWindows(workspace_index)
 	end)
 
 	-- workspace:subscribe("aerospace_focus_change", function(env)

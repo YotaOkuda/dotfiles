@@ -13,7 +13,7 @@ after-startup-command = ['exec-and-forget borders' , 'exec-and-forget sketchybar
 # Notify Sketchybar about workspace change
 exec-on-workspace-change = ['/bin/bash', '-c',
     'sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=$AEROSPACE_FOCUSED_WORKSPACE WORKSPACE=$AEROSPACE_WINDOW_WORKSPACE'
-    'sketchybar --trigger aerospace_workspace_change WORKSPACE=$AEROSPACE_WINDOW_WORKSPACE'
+    # 'sketchybar --trigger aerospace_workspace_change WORKSPACE=$AEROSPACE_WINDOW_WORKSPACE'
 ]
 
 # Start AeroSpace at login

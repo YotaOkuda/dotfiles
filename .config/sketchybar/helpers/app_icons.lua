@@ -64,6 +64,7 @@ return {
 	["DaVinci Resolve"] = ":davinciresolve:",
 	["Deezer"] = ":deezer:",
 	["Default"] = ":default:",
+	-- ["Default"] = ":terminal:",
 	["CleanMyMac X"] = ":desktop:",
 	["DEVONthink 3"] = ":devonthink3:",
 	["DingTalk"] = ":dingtalk:",
@@ -311,4 +312,3 @@ return {
 	["Zotero"] = ":zotero:",
 	["Zulip"] = ":zulip:",
 }
-
