@@ -34,28 +34,28 @@
 },
 {
   "type": "os",
-  "key": "",
+  "key": " OS",
   "keycolor": "red"
 },
 {
   "type": "kernel",
-  "key": "",
+  "key": " Kernel",
   "keycolor": "red"
 },
 {
   "type": "de",
-  "key": "",
+  "key": " DE",
   "keycolor": "green"
 },
 {
   "type": "wm",
-  "key": "",
+  "key": " WM",
   "keycolor": "green",
   "format": "Aerospace"
 },
 {
   "type": "packages",
-  "key": "",
+  "key": " Packages",
   "keycolor": "yellow"
 },
 {
@@ -64,32 +64,32 @@
 },
 {
   "type": "memory",
-  "key": "",
+  "key": " Memory",
   "keycolor": "blue"
 },
 {
   "type": "cpu",
-  "key": "",
+  "key": " CPU",
   "keycolor": "blue"
 },
 {
   "type": "gpu",
-  "key": "",
+  "key": " GPU",
   "keycolor": "magenta"
 },
 {
   "type": "swap",
-  "key": "",
+  "key": " Swap",
   "keycolor": "magenta"
 },
 {
   "type": "disk",
-  "key": "",
+  "key": " Disk",
   "keycolor": "red"
 },
 {
   "type": "battery",
-  "key": "",
+  "key": " Battery",
   "keycolor": "red"
 },
 {
@@ -98,12 +98,12 @@
 },
 {
   "type": "uptime",
-  "key": "",
+  "key": " UpTime",
   "keycolor": "yellow"
 },
 {
   "type": "terminal",
-  "key": "",
+  "key": " Terminal",
   "keycolor": "yellow"
 },
 {
