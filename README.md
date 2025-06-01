@@ -21,10 +21,10 @@ This repository contains scripts and configuration files to set up a development
 
 
 ## Installation & Setup
-1. Clone this repo into your home directory
-   `git clone https://github.com/YotaOkuda/dotfiles.git`
+1. Clone this repo into your home directory  
+   `git clone https://github.com/YotaOkuda/dotfiles.git`  
    `cd dotfiles`
-2. Run the setup script
+2. Run the setup script  
    `./setup.sh`
 
 <br>
