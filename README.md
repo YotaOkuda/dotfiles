@@ -10,6 +10,8 @@ This repository contains scripts and configuration files to set up a development
   - aerospace
 #### Menubar  
   - sketchybar
+#### Keyboard Custom
+  - karabiner
 #### Other  
   - borders  
   - fastfetch

@@ -178,7 +178,7 @@ echo "  source \"$SHELL_RC\""
 backup_dir="$HOME/.config/backup-before-dotfiles-$(date +%Y%m%d_%H%M%S)"
 mkdir -p "$backup_dir"
 
-for d in aerospace sketchybar nvim borders fastfetch; do
+for d in aerospace sketchybar nvim borders fastfetch karabiner; do
   if [[ -e "$HOME/.config/$d" && ! -L "$HOME/.config/$d" ]]; then
     echo "バックアップ: ~/.config/$d → $backup_dir/$d"
     mv "$HOME/.config/$d" "$backup_dir/$d"
@@ -191,7 +191,7 @@ done
 # 3. シンボリックリンクを作成
 echo ""
 echo "── シンボリックリンクを作成します ──"
-for d in aerospace sketchybar nvim borders fastfetch; do
+for d in aerospace sketchybar nvim borders fastfetch karabiner; do
   src="$HOME/dotfiles/.config/$d"
   dest="$HOME/.config/$d"
 
