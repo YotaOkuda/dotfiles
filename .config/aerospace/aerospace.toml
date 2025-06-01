@@ -156,12 +156,9 @@ alt-y = 'workspace Y'
 alt-z = 'workspace Z'
 
 # See: https://nikitabobko.github.io/AeroSpace/commands#move-node-to-workspace
-alt-shift-1 = [
-    'move-node-to-workspace 1 --focus-follows-window',
-    'exec-and-forget sketchybar --trigger aerospace_workspace_change FOCUSED_WORKSPACE=1' 
-]
-alt-shift-2 = ['move-node-to-workspace 2 --focus-follows-window']
-alt-shift-3 = ['move-node-to-workspace 3 --focus-follows-window']
+alt-shift-1 = 'move-node-to-workspace 1 --focus-follows-window'
+alt-shift-2 = 'move-node-to-workspace 2 --focus-follows-window'
+alt-shift-3 = 'move-node-to-workspace 3 --focus-follows-window'
 alt-shift-4 = 'move-node-to-workspace 4 --focus-follows-window'
 alt-shift-5 = 'move-node-to-workspace 5 --focus-follows-window'
 alt-shift-6 = 'move-node-to-workspace 6 --focus-follows-window'
@@ -243,3 +240,10 @@ run = 'layout floating'
 if.app-id = 'com.apple.AppStore'
 run = 'layout floating'
 
+# ------ App Workspace ------
+[[on-window-detected]]
+if.app-id = 'notion.id'
+run = 'move-node-to-workspace 1'
+[[on-window-detected]]
+if.app-id = 'com.cron.electron'
+run = 'move-node-to-workspace 2'
