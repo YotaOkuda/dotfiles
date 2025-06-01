@@ -4,21 +4,20 @@ This repository contains scripts and configuration files to set up a development
 <br>
 
 ## Contents
-- Editor
-  neovim
-- WM
-  aerospace
-- Menubar
-  sketchybar
-- Other
-  borders
-  fastfetch
-- Unused
-  skhd
-  yabai
+#### Editor  
+  - neovim
+#### WM  
+  - aerospace
+#### Menubar  
+  - sketchybar
+#### Other  
+  - borders  
+  - fastfetch
+#### Unused  
+  - skhd  
+  - yabai
 
 <br>
-
 
 ## Installation & Setup
 1. Clone this repo into your home directory  
