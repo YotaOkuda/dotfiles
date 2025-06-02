@@ -12,7 +12,6 @@ local front_app = sbar.add("item", "front_app", {
 })
 
 front_app:subscribe("front_app_switched", function(env)
-	print("Front app switched to:", env.INFO)
 	local lookup = app_icons[env.INFO]
 	local icon = ((lookup == nil) and app_icons["Default"] or lookup)
 	front_app:set({
