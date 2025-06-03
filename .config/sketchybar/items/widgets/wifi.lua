@@ -5,7 +5,7 @@ local settings = require("settings")
 -- Padding item required because of bracket
 sbar.add("item", {
 	position = "right",
-	width = settings.group_paddings,
+	width = 1,
 	background = { drawing = false },
 })
 
@@ -167,7 +167,7 @@ local router = sbar.add("item", {
 	},
 })
 
--- sbar.add("item", { position = "right", width = settings.group_paddings })
+-- sbar.add("item", { position = "right", width = settings.group_paddings, background = { drawing = false } })
 
 wifi_up:subscribe("network_update", function(env)
 	local up_color = (env.upload == "000 Bps") and colors.fg_secondary or colors.red
