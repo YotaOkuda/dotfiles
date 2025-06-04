@@ -3,6 +3,7 @@ require("items.apple")
 -- require("items.aerospace_mode_indicator")
 require("items.aerospace")
 require("items.front_app")
+-- require("items.menus")
 
 -- From right-most to left
 require("items.calendar")

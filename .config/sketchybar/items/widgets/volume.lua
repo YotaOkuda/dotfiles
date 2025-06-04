@@ -14,11 +14,18 @@ local volume = sbar.add("item", "widgets.volume", {
 		string = icons.volume._100,
 		padding_left = 8,
 		padding_right = 10,
+		color = colors.tn_orange,
 	},
 	label = {
 		string = "??%",
 		font = { family = settings.font.numbers },
 		width = 0,
+		color = colors.tn_orange,
+	},
+	background = {
+		color = colors.tn_black3,
+		border_color = colors.tn_orange,
+		border_width = 1,
 	},
 })
 

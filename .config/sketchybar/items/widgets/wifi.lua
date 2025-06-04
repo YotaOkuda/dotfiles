@@ -73,6 +73,11 @@ local wifi = sbar.add("item", "widgets.wifi.padding", {
 	label = { drawing = false },
 	padding_left = 0,
 	padding_right = 0,
+	background = {
+		color = colors.tn_black3,
+		border_color = colors.tn_magenta,
+		border_width = 1,
+	},
 })
 
 -- Background around the item
@@ -194,7 +199,7 @@ wifi:subscribe({ "wifi_change", "system_woke" }, function(env)
 		wifi:set({
 			icon = {
 				string = connected and icons.wifi.connected or icons.wifi.disconnected,
-				color = connected and colors.fg or colors.red,
+				color = connected and colors.tn_magenta or colors.red,
 			},
 		})
 	end)

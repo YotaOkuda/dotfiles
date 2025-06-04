@@ -13,18 +13,21 @@ local cpu = sbar.add("item", {
 		color = colors.fg,
 		-- align = "center",
 		padding_left = 6,
+		padding_right = 8,
 	},
 	label = {
 		string = "??%",
 		font = {
 			family = settings.font.numbers,
 		},
-		color = colors.fg,
+		color = colors.tn_red,
 		width = 0,
 	},
-	-- background = {
-	-- 	color = colors.with_alpha(colors.bg, 1),
-	-- },
+	background = {
+		color = colors.tn_black3,
+		border_color = colors.tn_red,
+		border_width = 1,
+	},
 })
 
 cpu:subscribe("cpu_update", function(env)
@@ -34,11 +37,11 @@ cpu:subscribe("cpu_update", function(env)
 	local color = colors.fg
 	if load > 30 then
 		if load < 60 then
-			color = colors.yellow
+			color = colors.tn_yellow
 		elseif load < 80 then
-			color = colors.orange
+			color = colors.tn_orange
 		else
-			color = colors.red
+			color = colors.tn_red
 		end
 	end
 

@@ -12,13 +12,14 @@ local cal = sbar.add("item", {
 		},
 		padding_left = 10,
 		padding_right = 2,
+		color = colors.tn_blue,
 	},
-	-- label = {
-	-- 	width = 40,
-	-- 	align = "right",
-	-- 	font = { family = settings.font.numbers },
-	-- 	padding_left = -10,
-	-- },
+	background = {
+		color = colors.tn_black3,
+		border_color = colors.tn_blue,
+		border_width = 1,
+		-- corner_radius = 6,
+	},
 	position = "right",
 	update_freq = 30,
 })
