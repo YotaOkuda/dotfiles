@@ -36,4 +36,5 @@ The setting I referred to.
 
 - https://github.com/FelixKratz/SketchyBar
 - https://github.com/jackplus-xyz/dotfiles
+- https://github.com/SoichiroYamane/dotfiles
 - https://github.com/sofijacom/dotfiles-fastfetch
