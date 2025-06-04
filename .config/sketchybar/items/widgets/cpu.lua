@@ -34,14 +34,14 @@ cpu:subscribe("cpu_update", function(env)
 	-- Also available: env.user_load, env.sys_load
 	local load = tonumber(env.total_load)
 
-	local color = colors.fg
+	local color = colors.tn_white1
 	if load > 30 then
 		if load < 60 then
-			color = colors.tn_yellow
+			color = colors.yellow
 		elseif load < 80 then
-			color = colors.tn_orange
+			color = colors.orange
 		else
-			color = colors.tn_red
+			color = colors.red
 		end
 	end
 
