@@ -359,6 +359,7 @@ end)
 -- ★ここが新規追加部分★
 -- 「workspace_list に対応するすべてのアイテム」を同じ一つの bracket で包み、
 -- 背景をまとめて描画する
+-- Tokyo Night
 --------------------------------------------------------------------------------
 local bracket_names = {}
 for _, id in ipairs(workspace_list) do
