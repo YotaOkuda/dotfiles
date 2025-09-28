@@ -47,6 +47,15 @@ return {
 	-- neo-tree の起動時設定
 	config = function(_, opts)
 		require("neo-tree").setup(opts)
+		vim.api.nvim_create_autocmd({ "BufLeave" }, {
+			pattern = { "*lazygit*" },
+			group = vim.api.nvim_create_augroup("git_refresh_neotree", { clear = true }),
+			callback = function()
+				require("neo-tree.sources.filesystem.commands").refresh(
+					require("neo-tree.sources.manager").get_state("filesystem")
+				)
+			end,
+		})
 
 		vim.api.nvim_create_autocmd("VimEnter", {
 			once = true,
