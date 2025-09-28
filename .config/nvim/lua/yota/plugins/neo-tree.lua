@@ -6,7 +6,7 @@ return {
 		"MunifTanjim/nui.nvim",
 		"nvim-tree/nvim-web-devicons",
 	},
-	lazy = false, -- neo-tree will lazily load itself
+	-- lazy = false, -- neo-tree will lazily load itself
 
 	opts = function(_, opts)
 		-- 既存の設定をマージ
