@@ -20,5 +20,6 @@ return {
 		{ "<leader>gk", "<cmd>TmuxNavigateUp<CR>", desc = "Navigate Up Pane" },
 		{ "<leader>gl", "<cmd>TmuxNavigateRight<CR>", desc = "Navigate Right Pane" },
 		{ "<leader>gp", "<cmd>TmuxNavigatePrevious<CR>", desc = "Navigate Previous Pane" },
+		{ "<leader>gn", "<cmd>Neotree focus left<CR>", desc = "Focus Neotree" },
 	},
 }
