@@ -9,7 +9,7 @@ return {
 			auto_session_suppress_dirs = { "~/", "~/Dev/", "~/Downloads", "~/Documents", "~/Desktop/" },
 
 			post_restore_cmds = {
-				"Neotree toggle reveal",
+				"Neotree toggle left",
 			},
 		})
 

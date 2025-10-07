@@ -25,11 +25,14 @@ return {
 		-- ファイラーの設定
 		opts.filesystem = opts.filesystem or {}
 
+		opts.filesystem.window = {
+			width = 35,
+		}
 		-- ファイルシステムの自動更新設定
 		opts.filesystem.use_libuv_file_watcher = true
 		opts.filesystem.follow_current_file = {
 			enabled = true, -- 現在のファイルを自動的にフォーカス
-			leave_dirs_open = false, -- 自動展開されたディレクトリを閉じる
+			leave_dirs_open = true, -- 自動展開されたディレクトリを閉じる
 		}
 
 		-- 隠しファイルを表示する設定
