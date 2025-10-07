@@ -59,9 +59,9 @@ return {
 		})
 
 		-- neo-treeの自動起動設定
-		vim.api.nvim_create_autocmd("VimEnter", {
-			command = "Neotree toggle",
-		})
+		-- vim.api.nvim_create_autocmd("VimEnter", {
+		-- 	command = "Neotree toggle",
+		-- })
 
 		-- neotreeの自動起動設定
 		-- vim.api.nvim_create_autocmd("VimEnter", {
