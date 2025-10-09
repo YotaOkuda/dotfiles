@@ -6,7 +6,7 @@ return {
 	event = { "InsertLeave", "TextChanged" },
 	-- auto-saveの切り替えコマンド
 	keys = {
-		{ "<leader>n", "<cmd>ASToggle<CR>", desc = "Toggle auto-save" },
+		{ "<leader>as", "<cmd>ASToggle<CR>", desc = "Toggle auto-save" },
 	},
 	opts = {
 		enabled = true, -- start auto-save when the plugin is loaded (i.e. when your package manager loads it)
