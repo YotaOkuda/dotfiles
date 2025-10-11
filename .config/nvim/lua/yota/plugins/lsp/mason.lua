@@ -38,7 +38,15 @@ return {
 				"prismals",
 				"pyright",
 				"eslint",
-				"ruby_lsp",
+			},
+			handlers = {
+				function(server_name)
+					-- ruby_lsp はnvim-lspconfig.luaで個別設定するのでスキップ
+					if server_name == "ruby_lsp" then
+						return
+					end
+					require("lspconfig")[server_name].setup({})
+				end,
 			},
 		})
 
