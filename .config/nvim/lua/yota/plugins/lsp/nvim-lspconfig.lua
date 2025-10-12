@@ -63,21 +63,35 @@ return {
 		vim.diagnostic.config({
 			signs = {
 				text = {
-					[vim.diagnostic.severity.ERROR] = " ",
-					[vim.diagnostic.severity.WARN] = " ",
+					[vim.diagnostic.severity.ERROR] = " ",
+					[vim.diagnostic.severity.WARN] = " ",
 					[vim.diagnostic.severity.HINT] = "󰠠 ",
-					[vim.diagnostic.severity.INFO] = " ",
+					[vim.diagnostic.severity.INFO] = " ",
 				},
 			},
 		})
 
 		-- Ruby LSP の設定（lspconfig形式）
 		lspconfig.ruby_lsp.setup({
-			cmd = { "ruby-lsp" },
+			-- vim.lsp.config("ruby_lsp", {
+			cmd = { "bundle", "exec", "ruby-lsp" },
 			filetypes = { "ruby" },
 			root_dir = lspconfig.util.root_pattern("Gemfile", ".git"),
 			init_options = {
-				formatter = "auto",
+				enabledFeatures = {
+					"documentHighlights",
+					"documentSymbols",
+					"foldingRanges",
+					"selectionRanges",
+					"semanticHighlighting",
+					"diagnostics",
+					"formatting",
+					"codeActions",
+					"completion", -- これを明示的に有効化
+					"hover",
+					"references",
+					"definition",
+				},
 			},
 			settings = {
 				rubyLsp = {
@@ -89,6 +103,7 @@ return {
 			},
 			capabilities = capabilities,
 		})
+		-- vim.lsp.enable("ruby_lsp")
 
 		-- Svelte
 		lspconfig.svelte.setup({
@@ -121,51 +136,11 @@ return {
 			filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
 		})
 
-		-- vim.lsp.config を使う場合の設定
-		vim.lsp.config("*", {
-			capabilities = capabilities,
-		})
-
-		vim.lsp.config("ruby_lsp", {
-			cmd = { "ruby-lsp" },
-			filetypes = { "ruby" },
-			root_dir = vim.fs.root(0, { "Gemfile", ".git" }),
-			settings = {
-				rubyLsp = {
-					formatter = "auto",
-					singleFileLibrary = {
-						diagnostics = "on",
-					},
-				},
-			},
-		})
-
-		vim.lsp.config("svelte", {
-			on_attach = function(client, bufnr)
-				vim.api.nvim_create_autocmd("BufWritePost", {
-					pattern = { "*.js", "*.ts" },
-					callback = function(ctx)
-						client.notify("$/onDidChangeTsOrJsFile", { uri = ctx.match })
-					end,
-				})
-			end,
-		})
-
-		vim.lsp.config("graphql", {
-			filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
-		})
-
-		vim.lsp.config("emmet_ls", {
-			filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
-		})
-
-		vim.lsp.config("eslint", {
-			filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
-		})
-
+		-- vim global setting
 		vim.lsp.config("lua_ls", {
 			settings = {
 				Lua = {
+					-- make the language server recognize "vim" global
 					diagnostics = {
 						globals = { "vim" },
 					},
@@ -175,8 +150,5 @@ return {
 				},
 			},
 		})
-
-		-- LSPを有効化
-		vim.lsp.enable("ruby_lsp")
 	end,
 }
