@@ -19,6 +19,7 @@ return {
 		local wk = require("which-key")
 		wk.setup(opts)
 		wk.add({
+			{ "<leader>b", group = "2 Bufferline" },
 			{ "<leader>f", group = "5 Fuzzy Find" },
 			{ "<leader>g", group = "6 Tmux-Navigator" },
 			{ "<leader>h", group = "10 Hunk" },
