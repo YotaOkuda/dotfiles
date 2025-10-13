@@ -27,6 +27,10 @@ return {
 
 		opts.filesystem.window = {
 			width = 35,
+			mappings = {
+				-- ["<CR>"] = "open_tabnew", -- 通常の開き方（今のウィンドウ）
+				["t"] = "open_tabnew", -- tキーで新しいタブで開く
+			},
 		}
 		-- ファイルシステムの自動更新設定
 		opts.filesystem.use_libuv_file_watcher = true
