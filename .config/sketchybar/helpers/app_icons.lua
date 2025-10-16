@@ -122,6 +122,7 @@ return {
 	["Iris"] = ":iris:",
 	["iTerm"] = ":iterm:",
 	["iTerm2"] = ":iterm:",
+	-- ["Ghostty"] = ":ghostty",
 	["Jellyfin Media Player"] = ":jellyfin:",
 	["Joplin"] = ":joplin:",
 	["카카오톡"] = ":kakaotalk:",

@@ -2,6 +2,7 @@ local icons = require("icons")
 local colors = require("colors")
 local settings = require("settings")
 local app_icons = require("helpers.app_icons")
+-- local app_icons = require("helpers.icon_map")
 
 --------------------------------------------------------------------------------
 -- ワークスペース名を文字列の配列で定義（数字1〜9と大文字A〜Zのうち利用したい文字）
@@ -161,7 +162,7 @@ end)
 local function updateWindows(workspace_id)
 	-- "aerospace list-windows --workspace <ID> --format '%{app-name}' --json"
 	local get_windows =
-			string.format("aerospace list-windows --workspace %s --format '%%{app-name}' --json", workspace_id)
+		string.format("aerospace list-windows --workspace %s --format '%%{app-name}' --json", workspace_id)
 	sbar.exec(get_windows, function(open_windows)
 		local icon_line = ""
 		local no_app = true
