@@ -8,6 +8,7 @@ local front_app = sbar.add("item", "front_app", {
 	icon = {
 		font = "sketchybar-app-font-bg:Regular:18.0",
 		padding_right = 4,
+		y_offset = -1,
 		-- color = colors.tn_cyan,
 	},
 	background = {
