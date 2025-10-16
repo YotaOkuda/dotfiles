@@ -1,8 +1,7 @@
 local icons = require("icons")
 local colors = require("colors")
 local settings = require("settings")
-local app_icons = require("helpers.app_icons")
--- local app_icons = require("helpers.icon_map")
+local app_icons = require("helpers.icon_map")
 
 --------------------------------------------------------------------------------
 -- ワークスペース名を文字列の配列で定義（数字1〜9と大文字A〜Zのうち利用したい文字）
@@ -227,16 +226,16 @@ for _, workspace_id in ipairs(workspace_list) do
 			font = { family = settings.font.numbers },
 			string = workspace_id, -- "1" や "A" などの文字列
 			padding_left = 5,
-			padding_right = 4,
+			padding_right = 0,
 			color = colors_spaces[workspace_id],
 			highlight_color = colors.black,
 		},
 		label = {
-			padding_right = 10,
+			padding_right = 8,
 			color = colors_spaces[workspace_id], -- ★Workspaceごとの番号文字色
 			highlight_color = colors.black,
-			font = "sketchybar-app-font:Regular:16.0",
-			y_offset = -1,
+			font = "sketchybar-app-font-bg:Regular:18.0",
+			y_offset = -2,
 		},
 		padding_right = 0,
 		padding_left = 0,

@@ -1,8 +1,7 @@
 local colors = require("colors")
 local icons = require("icons")
 local settings = require("settings")
-local app_icons = require("helpers.app_icons")
--- local app_icons = require("helpers.icon_map")
+local app_icons = require("helpers.icon_map")
 
 local is_show_apps = true
 
@@ -28,7 +27,7 @@ for i = 1, 10, 1 do
 			padding_right = 20,
 			color = colors.fg_secondary,
 			highlight_color = colors.fg,
-			font = "sketchybar-app-font:Regular:16.0",
+			font = "sketchybar-app-font-bg:Regular:16.0",
 			y_offset = -1,
 		},
 		padding_right = 1,
