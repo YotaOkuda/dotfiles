@@ -71,7 +71,7 @@ return {
 	["Microsoft Outlook"] = ":microsoft_outlook:",
 	["Microsoft PowerPoint"] = ":microsoft_powerpoint:",
 	["Microsoft Remote Desktop"] = ":microsoft_remotedesktop:",
-	["Microsoft Teams classic"] = ":microsoft_teams:",
+	["Microsoft Teams"] = ":microsoft_teams:",
 	["Microsoft To Do"] = ":microsoft_todo:",
 	["Microsoft Word"] = ":microsoft_word:",
 	["Music"] = ":music:",
@@ -134,3 +134,4 @@ return {
 	["zoom"] = ":zoom:",
 	["zoom.us"] = ":zoom:",
 }
+

@@ -170,7 +170,7 @@ local function updateWindows(workspace_id)
 			no_app = false
 			local app = open_window["app-name"]
 			local lookup = app_icons[app]
-			local icon = (lookup == nil) and app_icons["Default"] or lookup
+			local icon = (lookup == nil) and app_icons["default"] or lookup
 			icon_line = icon_line .. " " .. icon
 		end
 
