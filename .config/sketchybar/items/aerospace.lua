@@ -229,6 +229,7 @@ for _, workspace_id in ipairs(workspace_list) do
 			padding_right = 0,
 			color = colors_spaces[workspace_id],
 			highlight_color = colors.black,
+			y_offset = -1,
 		},
 		label = {
 			padding_right = 8,
