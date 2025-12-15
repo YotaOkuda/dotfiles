@@ -250,3 +250,12 @@ run = 'move-node-to-workspace 2'
 [[on-window-detected]]
 if.app-id = 'md.obsidian'
 run = 'move-node-to-workspace O'
+[[on-window-detected]]
+if.app-id = 'com.microsoft.VSCode'
+run = 'move-node-to-workspace V'
+[[on-window-detected]]
+if.app-id = 'com.microsoft.teams2'
+run = 'move-node-to-workspace T'
+[[on-window-detected]]
+if.app-id = 'org.zotero.zotero'
+run = 'move-node-to-workspace Z'
