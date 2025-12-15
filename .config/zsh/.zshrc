@@ -64,4 +64,3 @@ if [ -f '/Users/okudayota/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then
 # >>> venvs >>>
 alias atcoder='source ~/venvs/atcoder/bin/activate'
 # <<< venvs <<<
-eval "$(rbenv init -)"
