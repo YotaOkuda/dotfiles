@@ -1,3 +1,4 @@
 .config/nvim/lazy-lock.json
 .DS_Store
 .ruby-lsp/
+.config/tmux/plugins/
