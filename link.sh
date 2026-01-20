@@ -30,5 +30,6 @@ done
 
 # 2. zshの設定 (ホーム直下)
 ln -sfv "$DOT_DIR/.config/zsh/.zshrc" "$HOME/.zshrc"
+ln -sfv "$DOT_DIR/.config/zsh/.zprofile" "$HOME/.zprofile"
 
 echo "--- Setup Complete ---"
