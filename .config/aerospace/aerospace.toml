@@ -237,6 +237,9 @@ run = 'layout floating'
 if.app-id = 'com.apple.exposelauncher'
 run = 'layout floating'
 [[on-window-detected]]
+if.app-id = 'jp.naver.line.mac'
+run = 'layout floating'
+[[on-window-detected]]
 if.app-id = 'com.apple.AppStore'
 run = 'layout floating'
 
