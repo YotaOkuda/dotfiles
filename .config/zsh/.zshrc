@@ -7,7 +7,9 @@ fi
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 # Path to your Oh My Zsh installation.
-export ZSH="$HOME/dotfiles/.config/zsh/oh-my-zsh"
+export ZSH="$HOME/ghq/github.com/YotaOkuda/dotfiles/.config/zsh/oh-my-zsh"
+# カスタムディレクトリ
+export ZSH_CUSTOM="$ZSH/custom"
 ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(git)
 source $ZSH/oh-my-zsh.sh
@@ -65,3 +67,23 @@ if [ -f '/Users/okudayota/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then
 alias atcoder='source ~/venvs/atcoder/bin/activate'
 # <<< venvs <<<
 eval "$(pyenv virtualenv-init -)"
+
+# fzf
+source <(fzf --zsh)
+
+
+# ghq
+function ghq-fzf() {
+  local src=$(ghq list | fzf --preview "bat --color=always --style=header,grid --line-range :80 $(ghq root)/{}/README.*")
+  if [ -n "$src" ]; then
+    BUFFER="cd $(ghq root)/$src"
+    zle accept-line
+  fi
+  zle -R -c
+}
+zle -N ghq-fzf
+bindkey '^g' ghq-fzf
+
+
+# lazygit
+alias lg="lazygit"
