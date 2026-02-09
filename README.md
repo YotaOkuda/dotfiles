@@ -22,12 +22,22 @@ This repository contains scripts and configuration files to set up a development
 <br>
 
 ## Installation & Setup
-1. Clone this repo into your home directory  
-   `git clone https://github.com/YotaOkuda/dotfiles.git`  
-   `cd dotfiles`
-2. Run the setup script  
-   `chmod +x install.sh`  
-   `./install.sh`
+```bash
+gh repo clone YotaOkuda/dotfiles ~/ghq/github.com/YotaOkuda/dotfiles
+cd ~/ghq/github.com/YotaOkuda/dotfiles
+make setup
+```
+
+個別ターゲットの実行も可能:
+```bash
+make brew        # Homebrew インストール + brew bundle
+make link        # シンボリックリンク作成
+make submodule   # git submodule (powerlevel10k)
+make sketchybar  # SbarLua ビルド + フォント
+make neovim      # Lazy プラグイン同期
+make tmux        # tpm + プラグインインストール
+make services    # sketchybar / borders サービス起動
+```
 
 <br>
 
