@@ -219,7 +219,7 @@ alt-shift-k = ['join-with up', 'mode main']
 alt-shift-l = ['join-with right', 'mode main']
 
 
-# ------ FLOATING --------
+# ------ FLOATING ------
 # Apple Stuff
 [[on-window-detected]]
 if.app-id = 'com.apple.systempreferences'
@@ -242,6 +242,10 @@ run = 'layout floating'
 [[on-window-detected]]
 if.app-id = 'com.apple.AppStore'
 run = 'layout floating'
+# ------ TILING ------
+[[on-window-detected]]
+if.app-id = 'com.brave.Browser'
+run = 'layout tiling'
 
 # ------ App Workspace ------
 [[on-window-detected]]
