@@ -7,7 +7,7 @@ return {
 		{ "folke/neodev.nvim", opts = {} },
 	},
 	config = function()
-		local lspconfig = require("lspconfig")
+		-- local lspconfig = require("lspconfig")
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
 		local keymap = vim.keymap
@@ -72,11 +72,13 @@ return {
 		})
 
 		-- Ruby LSP の設定（lspconfig形式）
-		lspconfig.ruby_lsp.setup({
+		vim.lsp.config("ruby_lsp", {
 			-- vim.lsp.config("ruby_lsp", {
 			cmd = { "bundle", "exec", "ruby-lsp" },
 			filetypes = { "ruby" },
-			root_dir = lspconfig.util.root_pattern("Gemfile", ".git"),
+			root_dir = function(fname)
+				return vim.fs.root(fname, { "Gemfile", ".git" }) or vim.fn.getcwd()
+			end,
 			init_options = {
 				enabledFeatures = {
 					"documentHighlights",
@@ -103,10 +105,10 @@ return {
 			},
 			capabilities = capabilities,
 		})
-		-- vim.lsp.enable("ruby_lsp")
+		vim.lsp.enable("ruby_lsp")
 
 		-- Svelte
-		lspconfig.svelte.setup({
+		vim.lsp.config("svelte", {
 			capabilities = capabilities,
 			on_attach = function(client, bufnr)
 				vim.api.nvim_create_autocmd("BufWritePost", {
@@ -117,38 +119,39 @@ return {
 				})
 			end,
 		})
+		vim.lsp.enable("svelte")
 
 		-- GraphQL
-		lspconfig.graphql.setup({
+		vim.lsp.config("graphql", {
 			capabilities = capabilities,
 			filetypes = { "graphql", "gql", "svelte", "typescriptreact", "javascriptreact" },
 		})
+		vim.lsp.enable("graphql")
 
 		-- Emmet
-		lspconfig.emmet_ls.setup({
+		vim.lsp.config("emmet_ls", {
 			capabilities = capabilities,
 			filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
 		})
+		vim.lsp.enable("emmet_ls")
 
 		-- ESLint
-		lspconfig.eslint.setup({
+		vim.lsp.config("eslint", {
 			capabilities = capabilities,
 			filetypes = { "html", "typescriptreact", "javascriptreact", "css", "sass", "scss", "less", "svelte" },
 		})
+		vim.lsp.enable("eslint")
 
-		-- vim global setting
+		-- Lua LS
 		vim.lsp.config("lua_ls", {
+			capabilities = capabilities, -- 他と同様に追加
 			settings = {
 				Lua = {
-					-- make the language server recognize "vim" global
-					diagnostics = {
-						globals = { "vim" },
-					},
-					completion = {
-						callSnippet = "Replace",
-					},
+					diagnostics = { globals = { "vim" } },
+					completion = { callSnippet = "Replace" },
 				},
 			},
 		})
+		vim.lsp.enable("lua_ls")
 	end,
 }
