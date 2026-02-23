@@ -1,30 +1,8 @@
 return {
-	"mason-org/mason.nvim",
-	dependencies = {
-		"mason-org/mason-lspconfig.nvim",
-		"WhoIsSethDaniel/mason-tool-installer.nvim",
-	},
-	config = function()
-		-- import mason
-		local mason = require("mason")
-
-		-- import mason-lspconfig
-		local mason_lspconfig = require("mason-lspconfig")
-
-		local mason_tool_installer = require("mason-tool-installer")
-
-		-- enable mason and configure icons
-		mason.setup({
-			ui = {
-				icons = {
-					package_installed = "✓",
-					package_pending = "➜",
-					package_uninstalled = "✗",
-				},
-			},
-		})
-
-		mason_lspconfig.setup({
+	{
+		"williamboman/mason-lspconfig.nvim",
+		opts = {
+			automatic_enable = false,
 			-- list of servers for mason to install
 			ensure_installed = {
 				"ts_ls",
@@ -39,18 +17,26 @@ return {
 				"pyright",
 				"eslint",
 			},
-			handlers = {
-				function(server_name)
-					-- ruby_lsp はnvim-lspconfig.luaで個別設定するのでスキップ
-					if server_name == "ruby_lsp" then
-						return
-					end
-					require("lspconfig")[server_name].setup({})
-				end,
+		},
+		dependencies = {
+			{
+				"williamboman/mason.nvim",
+				opts = {
+					ui = {
+						icons = {
+							package_installed = "✓",
+							package_pending = "➜",
+							package_uninstalled = "✗",
+						},
+					},
+				},
 			},
-		})
-
-		mason_tool_installer.setup({
+			"neovim/nvim-lspconfig",
+		},
+	},
+	{
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
+		opts = {
 			ensure_installed = {
 				"prettier", -- prettier formatter
 				"stylua", -- lua formatter
@@ -59,6 +45,9 @@ return {
 				"pylint",
 				"eslint_d",
 			},
-		})
-	end,
+		},
+		dependencies = {
+			"williamboman/mason.nvim",
+		},
+	},
 }
