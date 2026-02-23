@@ -55,6 +55,7 @@ return {
 				end,
 			})
 			vim.cmd([[colorscheme tokyonight]])
+			vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#7aa2f7", bg = "NONE" })
 		end,
 	},
 }
