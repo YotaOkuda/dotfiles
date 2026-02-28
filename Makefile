@@ -34,6 +34,7 @@ link:
 	done
 	ln -sfv "$(CONFIG_DIR)/zsh/.zshrc"    "$(HOME)/.zshrc"
 	ln -sfv "$(CONFIG_DIR)/zsh/.zprofile" "$(HOME)/.zprofile"
+	ln -sfv "$(CONFIG_DIR)/zsh/.p10k.zsh" "$(HOME)/.p10k.zsh"
 
 # ---------------------------------------------------------------------------
 # submodule: init powerlevel10k etc.
