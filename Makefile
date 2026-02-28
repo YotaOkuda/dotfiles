@@ -51,9 +51,9 @@ sketchybar:
 	@curl -fLo $(HOME)/Library/Fonts/sketchybar-app-font.ttf \
 		--create-dirs \
 		https://github.com/kvndrsslr/sketchybar-app-font/releases/download/v2.0.54/sketchybar-app-font.ttf
-	@curl -fLo $(HOME)/Library/Fonts/sketchybar-app-font-bg.ttf \
-		--create-dirs \
-		https://github.com/SoichiroYamane/sketchybar-app-font-bg/releases/download/v0.0.11/sketchybar-app-font-bg.ttf
+	@( [ -d /tmp/sketchybar-app-font-bg ] || git clone https://github.com/SoichiroYamane/sketchybar-app-font-bg.git /tmp/sketchybar-app-font-bg ) \
+		&& cd /tmp/sketchybar-app-font-bg && pnpm install && pnpm run build:install \
+		&& rm -rf /tmp/sketchybar-app-font-bg
 
 # ---------------------------------------------------------------------------
 # neovim: sync Lazy plugins headlessly
