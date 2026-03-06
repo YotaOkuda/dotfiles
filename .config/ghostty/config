@@ -54,7 +54,7 @@ window-theme = ghostty
 macos-titlebar-style = tabs
 font-family = ""
 font-family = "Hack Nerd Font Mono"
-background-opacity = 0.85
-background-blur-radius = 15
+background-opacity = 0.75
+background-blur-radius = 10
 macos-titlebar-style = transparent
 
