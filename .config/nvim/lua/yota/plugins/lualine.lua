@@ -1,5 +1,6 @@
 return {
 	"nvim-lualine/lualine.nvim",
+	event = "VimEnter",
 	dependencies = { "nvim-tree/nvim-web-devicons" },
 	opts = function()
 		local lazy_status = require("lazy.status")
