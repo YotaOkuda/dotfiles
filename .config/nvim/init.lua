@@ -1,2 +1,5 @@
-require("yota.core")
-require("yota.lazy")
+require("config.options")
+require("config.keymaps")
+require("config.other-config")
+require("config.im-select")
+require("config.lazy")

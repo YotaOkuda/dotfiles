@@ -1,4 +1,3 @@
--- TODO: 0.11以上に書き換える
 return {
 	"nvim-treesitter/nvim-treesitter",
 	event = { "BufReadPre", "BufNewFile" },
