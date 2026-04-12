@@ -18,7 +18,7 @@ return {
 			-- enable indentation
 			indent = {
 				enable = true,
-				disable = { "ruby" },
+				disable = { "ruby", "embedded_template" },
 			},
 			-- enable autotagging (w/ nvim-ts-autotag plugin)
 			autotag = {
@@ -47,6 +47,7 @@ return {
 				"vimdoc",
 				"c",
 				"ruby",
+				"embedded_template",
 				"python",
 			},
 			incremental_selection = {

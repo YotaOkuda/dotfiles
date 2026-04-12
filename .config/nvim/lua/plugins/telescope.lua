@@ -48,6 +48,35 @@ return {
 		keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Find string in cwd" })
 		keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
 		keymap.set("n", "<leader>ft", "<cmd>TodoTelescope<cr>", { desc = "Find todos" })
-		keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>", { desc = "Find open buffers" })
+		keymap.set("n", "<leader>fb", function()
+			local pickers = require("telescope.pickers")
+			local finders = require("telescope.finders")
+			local conf = require("telescope.config").values
+			local actions = require("telescope.actions")
+			local action_state = require("telescope.actions.state")
+			local bufs = vim.fn.getbufinfo({ buflisted = 1 })
+			pickers
+				.new({}, {
+					prompt_title = "Buffers",
+					finder = finders.new_table({
+						results = bufs,
+						entry_maker = function(buf)
+							local name = buf.name ~= "" and vim.fn.fnamemodify(buf.name, ":~:.") or "[No Name]"
+							local indicator = buf.changed == 1 and "● " or "  "
+							local display = indicator .. name
+							return { value = buf, display = display, ordinal = name, bufnr = buf.bufnr }
+						end,
+					}),
+					sorter = conf.generic_sorter({}),
+					attach_mappings = function(prompt_bufnr)
+						actions.select_default:replace(function()
+							actions.close(prompt_bufnr)
+							vim.api.nvim_set_current_buf(action_state.get_selected_entry().bufnr)
+						end)
+						return true
+					end,
+				})
+				:find()
+		end, { desc = "Find open buffers" })
 	end,
 }
