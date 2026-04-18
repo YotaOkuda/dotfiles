@@ -51,10 +51,21 @@
 command = /bin/zsh
 theme = TokyoNight
 window-theme = ghostty
-macos-titlebar-style = tabs
+# macos-titlebar-style = tabs
 font-family = ""
 font-family = "Hack Nerd Font Mono"
 background-opacity = 0.75
 background-blur-radius = 10
-macos-titlebar-style = transparent
+# macos-titlebar-style = transparent
 
+# --- tmux prefix (Ctrl+A) 経由の操作 ---
+
+# 新しいウィンドウ (Cmd+T) -> prefix + c
+keybind = cmd+t=text:\x01c
+
+# ウィンドウを閉じる (Cmd+W) -> prefix + x
+keybind = cmd+w=text:\x01x
+
+# --- 使わないGhosttyデフォルトを無効化 ---
+# keybind = super+n=unbind
+keybind = super+d=unbind
