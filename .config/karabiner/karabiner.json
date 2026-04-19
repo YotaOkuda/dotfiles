@@ -4,7 +4,7 @@
             "complex_modifications": {
                 "rules": [
                     {
-                        "description": "SCLN_NAV: HJKL=Arrow, Comma=Home, Period=End",
+                        "description": "SCLN_NAV: HJKL=Arrow, Comma=Home, Period=End, d/f=JA/EN",
                         "manipulators": [
                             {
                                 "description": "セミコロン単押しで「;」、長押しで「右Command」",
@@ -84,11 +84,28 @@
                                 },
                                 "to": [{ "key_code": "right_arrow" }],
                                 "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "f",
+                                    "modifiers": { "mandatory": ["right_command"] }
+                                },
+                                "to": [{ "key_code": "japanese_eisuu" }],
+                                "type": "basic"
+                            },
+                            {
+                                "from": {
+                                    "key_code": "d",
+                                    "modifiers": { "mandatory": ["right_command"] }
+                                },
+                                "to": [{ "key_code": "japanese_kana" }],
+                                "type": "basic"
                             }
                         ]
                     },
                     {
                         "description": "Change left_control + comma/period to Home/End",
+                        "enabled": false,
                         "manipulators": [
                             {
                                 "from": {
