@@ -44,23 +44,21 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		local opts = { buffer = ev.buf, silent = true }
 		local keymap = vim.keymap
 
-		-- Telescopeを使ったリッチな機能
+		-- Snacks.pickerを使ったリッチな機能
 		opts.desc = "Show LSP references"
-		keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts)
+		keymap.set("n", "gR", function() Snacks.picker.lsp_references() end, opts)
 
 		opts.desc = "Show LSP definitions"
-		keymap.set("n", "gd", function()
-			require("telescope.builtin").lsp_definitions({ reuse_win = true })
-		end, opts)
+		keymap.set("n", "gd", function() Snacks.picker.lsp_definitions() end, opts)
 
 		opts.desc = "Show LSP implementations"
-		keymap.set("n", "gi", "<cmd>Telescope lsp_implementations<CR>", opts)
+		keymap.set("n", "gi", function() Snacks.picker.lsp_implementations() end, opts)
 
 		opts.desc = "Show LSP type definitions"
-		keymap.set("n", "gt", "<cmd>Telescope lsp_type_definitions<CR>", opts)
+		keymap.set("n", "gt", function() Snacks.picker.lsp_type_definitions() end, opts)
 
 		opts.desc = "Show buffer diagnostics"
-		keymap.set("n", "<leader>D", "<cmd>Telescope diagnostics bufnr=0<CR>", opts)
+		keymap.set("n", "<leader>D", function() Snacks.picker.diagnostics_buffer() end, opts)
 
 		-- LSP標準機能
 		opts.desc = "Go to declaration"
