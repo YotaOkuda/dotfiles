@@ -48,6 +48,5 @@ return {
 		{ "<leader>fs", function() Snacks.picker.grep() end, desc = "Find string in cwd" },
 		{ "<leader>fc", function() Snacks.picker.grep_word() end, desc = "Find string under cursor in cwd" },
 		{ "<leader>fb", function() Snacks.picker.buffers() end, desc = "Find open buffers" },
-		{ "<leader>ft", function() Snacks.picker.todo_comments() end, desc = "Find todos" },
 	},
 }
