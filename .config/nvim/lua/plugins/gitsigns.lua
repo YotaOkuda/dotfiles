@@ -6,6 +6,10 @@ return {
 		current_line_blame_opts = {
 			delay = 200,
 		},
+		preview_config = {
+			border = "rounded",
+			style = "minimal",
+		},
 		on_attach = function(bufnr)
 			local gs = package.loaded.gitsigns
 
