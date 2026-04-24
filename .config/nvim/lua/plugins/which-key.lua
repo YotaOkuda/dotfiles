@@ -19,15 +19,18 @@ return {
 		local wk = require("which-key")
 		wk.setup(opts)
 		wk.add({
-			{ "<leader>b", group = "2 Bufferline" },
-			{ "<leader>f", group = "5 Fuzzy Find" },
-			{ "<leader>g", group = "6 Tmux-Navigator" },
-			{ "<leader>h", group = "10 Hunk" },
-			{ "<leader>n", group = "4 Neotree" },
-			{ "<leader>s", group = "5 Split Window" },
-			{ "<leader>t", group = "5 Tab" },
-			{ "<leader>w", group = "2 Auto-session" },
-			{ "<leader>x", group = "5 Trouble" },
+			{ "<leader>b", group = "Buffer" },
+			{ "<leader>c", group = "Code Action" },
+			{ "<leader>d", group = "Diagnostics" },
+			{ "<leader>f", group = "Fuzzy Find" },
+			{ "<leader>g", group = "Tmux Navigator" },
+			{ "<leader>h", group = "Git Hunk" },
+			{ "<leader>l", group = "LazyGit" },
+			{ "<leader>n", group = "Neotree" },
+			{ "<leader>r", group = "Rename / Restart" },
+			{ "<leader>s", group = "Split Window" },
+			{ "<leader>t", group = "Tab" },
+			{ "<leader>x", group = "Trouble" },
 		})
 	end,
 }
