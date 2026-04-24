@@ -68,6 +68,9 @@ alias atcoder='source ~/venvs/atcoder/bin/activate'
 # <<< venvs <<<
 eval "$(pyenv virtualenv-init -)"
 
+# completion
+autoload -Uz compinit && compinit
+
 # fzf
 source <(fzf --zsh)
 
