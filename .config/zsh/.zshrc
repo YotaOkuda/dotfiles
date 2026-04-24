@@ -1,34 +1,34 @@
-# >>> oh my zsh >>
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
-
-# Path to your Oh My Zsh installation.
-export ZSH="$HOME/ghq/github.com/YotaOkuda/dotfiles/.config/zsh/oh-my-zsh"
-# カスタムディレクトリ
-export ZSH_CUSTOM="$ZSH/custom"
-ZSH_THEME="powerlevel10k/powerlevel10k"
-plugins=(git)
-source $ZSH/oh-my-zsh.sh
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-# zsh-syntax-highlighting の下線（underline）を無効化
-(( ${+ZSH_HIGHLIGHT_STYLES} )) || typeset -A ZSH_HIGHLIGHT_STYLES
-
-# ファイルパスまわりの下線を消す
-ZSH_HIGHLIGHT_STYLES[path]=none
-ZSH_HIGHLIGHT_STYLES[path_prefix]=none
-
-# unknown-token（入力途中のコマンド名など）の下線を消す
-ZSH_HIGHLIGHT_STYLES[unknown-token]=none
-
-# sudo などの precommand 部分の下線を消す
-ZSH_HIGHLIGHT_STYLES[precommand]=none
+# # >>> oh my zsh >>
+# if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+#   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+# fi
+#
+# # If you come from bash you might have to change your $PATH.
+# # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
+#
+# # Path to your Oh My Zsh installation.
+# export ZSH="$HOME/ghq/github.com/YotaOkuda/dotfiles/.config/zsh/oh-my-zsh"
+# # カスタムディレクトリ
+# export ZSH_CUSTOM="$ZSH/custom"
+# ZSH_THEME="powerlevel10k/powerlevel10k"
+# plugins=(git)
+# source $ZSH/oh-my-zsh.sh
+#
+# # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+# [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# # zsh-syntax-highlighting の下線（underline）を無効化
+# (( ${+ZSH_HIGHLIGHT_STYLES} )) || typeset -A ZSH_HIGHLIGHT_STYLES
+#
+# # ファイルパスまわりの下線を消す
+# ZSH_HIGHLIGHT_STYLES[path]=none
+# ZSH_HIGHLIGHT_STYLES[path_prefix]=none
+#
+# # unknown-token（入力途中のコマンド名など）の下線を消す
+# ZSH_HIGHLIGHT_STYLES[unknown-token]=none
+#
+# # sudo などの precommand 部分の下線を消す
+# ZSH_HIGHLIGHT_STYLES[precommand]=none
 # <<< oh my zsh <<<
 
 # >>> git >>>
@@ -87,3 +87,9 @@ bindkey '^g' ghq-fzf
 
 # lazygit
 alias lg="lazygit"
+
+# >>> starship >>>
+# p10kを使う場合は上のoh-my-zshブロックをそのままにして、
+# starshipに切り替えたい場合はoh-my-zshブロックをコメントアウトしてこちらを有効化
+eval "$(starship init zsh)"
+# <<< starship <<<

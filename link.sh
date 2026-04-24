@@ -32,4 +32,7 @@ done
 ln -sfv "$DOT_DIR/.config/zsh/.zshrc" "$HOME/.zshrc"
 ln -sfv "$DOT_DIR/.config/zsh/.zprofile" "$HOME/.zprofile"
 
+# 3. starshipの設定 (単体ファイル)
+ln -sfv "$DOT_DIR/.config/starship/starship.toml" "$HOME/.config/starship.toml"
+
 echo "--- Setup Complete ---"
