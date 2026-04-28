@@ -15,6 +15,7 @@ return {
 				-- "prismals",   -- Prisma
 				-- "pyright",    -- Python
 				"eslint", -- TypeScript / JavaScript
+				"ruby_lsp", -- Ruby
 			},
 		},
 		dependencies = {

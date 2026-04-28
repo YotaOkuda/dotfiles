@@ -17,7 +17,7 @@ require("lazy").setup({ { import = "plugins" }, { import = "plugins.lsp" } }, {
 		notify = false,
 	},
 	change_detection = {
-		notify = false,
+		notify = true,
 	},
 	ui = {
 		border = "rounded",
