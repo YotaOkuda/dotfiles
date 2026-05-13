@@ -15,6 +15,7 @@ return {
 		picker = {
 			enabled = true,
 			sources = {
+				lsp_references = { jump_to_single = false },
 				files = { hidden = true },
 				grep = { hidden = true },
 				buffers = {
