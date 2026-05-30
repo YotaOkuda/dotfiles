@@ -2,7 +2,7 @@ DOTFILES_DIR := $(shell cd $(dir $(abspath $(lastword $(MAKEFILE_LIST)))) && pwd
 CONFIG_DIR   := $(DOTFILES_DIR)/.config
 TPM_DIR      := $(CONFIG_DIR)/tmux/plugins/tpm
 
-APPS := tmux nvim aerospace sketchybar fastfetch gh borders karabiner ghostty
+APPS := tmux nvim aerospace sketchybar fastfetch gh borders karabiner ghostty mise
 
 .PHONY: setup brew link submodule sketchybar neovim tmux services
 
