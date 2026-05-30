@@ -47,10 +47,6 @@ alias ojt='oj t -c "python main.py" -d test'
 alias ass="acc s main.py -- --guess-python-interpreter pypy"
 # <<< acc <<<
 
-# >>> rbenv >>>
-eval "$(rbenv init - zsh)"
-# <<< rbenv <<<
-
 # >>> pyenv >>>
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
@@ -96,3 +92,4 @@ alias lg="lazygit"
 # starshipに切り替えたい場合はoh-my-zshブロックをコメントアウトしてこちらを有効化
 eval "$(starship init zsh)"
 # <<< starship <<<
+eval "$(mise activate zsh)"

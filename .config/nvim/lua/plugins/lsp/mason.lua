@@ -16,6 +16,7 @@ return {
 				-- "pyright",    -- Python
 				"eslint", -- TypeScript / JavaScript
 				"ruby_lsp", -- Ruby
+				"gopls", -- Go
 			},
 		},
 		dependencies = {
