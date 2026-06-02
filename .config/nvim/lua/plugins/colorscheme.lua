@@ -8,6 +8,7 @@ return {
 		lazy = active ~= "tokyonight",
 		config = function()
 			require("tokyonight").setup({
+				style = "moon", -- storm, night, moon, day
 				transparent = true,
 				styles = {
 					sidebars = "transparent",
