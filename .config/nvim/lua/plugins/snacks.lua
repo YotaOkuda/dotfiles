@@ -9,7 +9,7 @@ return {
 		-- refer to the configuration section below
 		bigfile = { enabled = true },
 		dashboard = { enabled = true },
-		explorer = { enabled = false },
+		explorer = { enabled = true },
 		indent = { enabled = true },
 		input = { enabled = true },
 		picker = {
@@ -48,6 +48,20 @@ return {
 		},
 	},
 	keys = {
+		{
+			"<leader>ne",
+			function()
+				Snacks.explorer()
+			end,
+			desc = "Toggle Explorer",
+		},
+		{
+			"<leader>nf",
+			function()
+				Snacks.explorer({ focus = true })
+			end,
+			desc = "Reveal Current File in Explorer",
+		},
 		{
 			"<leader>t",
 			function()
