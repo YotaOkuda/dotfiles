@@ -21,7 +21,7 @@ if [ -f '/Users/okudayota/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/U
 if [ -f '/Users/okudayota/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/okudayota/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
 
 # >>> venvs >>>
-alias atcoder='source ~/venvs/atcoder/bin/activate'
+# alias atcoder='source ~/venvs/atcoder/bin/activate'
 # <<< venvs <<<
 
 # completion
