@@ -7,11 +7,11 @@ export PATH=$HOME/.nodebrew/current/bin:$PATH
 # <<< nodebrew <<<
 
 # >>> ojt >>>
-alias ojt='oj t -c "python main.py" -d test'
+alias ojt='oj t -c "go run main.go" -d tests'
 # <<< ojt <<<
 
 # >>> acc >>>
-alias ass="acc s main.py -- --guess-python-interpreter pypy"
+alias accs="acc s -- main.go --language 6051"
 # <<< acc <<<
 
 # The next line updates PATH for the Google Cloud SDK.
