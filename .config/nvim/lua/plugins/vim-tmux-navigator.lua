@@ -20,6 +20,18 @@ return {
 		{ "<leader>gk", "<cmd>TmuxNavigateUp<CR>", desc = "Navigate Up Pane" },
 		{ "<leader>gl", "<cmd>TmuxNavigateRight<CR>", desc = "Navigate Right Pane" },
 		{ "<leader>gp", "<cmd>TmuxNavigatePrevious<CR>", desc = "Navigate Previous Pane" },
-		{ "<leader>gn", "<cmd>Neotree focus left<CR>", desc = "Focus Neotree" },
+		{
+			"<leader>gn",
+			function()
+				-- 開いていればフォーカス、なければ開く
+				local explorer = Snacks.picker.get({ source = "explorer" })[1]
+				if explorer then
+					explorer:focus()
+				else
+					Snacks.explorer()
+				end
+			end,
+			desc = "Focus Explorer",
+		},
 	},
 }

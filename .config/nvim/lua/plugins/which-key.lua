@@ -26,7 +26,7 @@ return {
 			{ "<leader>g", group = "Tmux Navigator" },
 			{ "<leader>h", group = "Git Hunk" },
 			{ "<leader>l", group = "LazyGit" },
-			{ "<leader>n", group = "Neotree" },
+			{ "<leader>n", group = "Explorer" },
 			{ "<leader>r", group = "Rename / Restart" },
 			{ "<leader>s", group = "Split Window" },
 			{ "<leader>t", group = "Tab" },
