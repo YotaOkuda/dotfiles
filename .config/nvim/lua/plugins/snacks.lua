@@ -218,6 +218,27 @@ return {
 			desc = "Find open buffers",
 		},
 		{
+			"<leader>fd",
+			function()
+				Snacks.picker.diagnostics()
+			end,
+			desc = "Find diagnostics (workspace)",
+		},
+		{
+			"<leader>lg",
+			function()
+				Snacks.lazygit()
+			end,
+			desc = "Open lazy git",
+		},
+		{
+			"<leader>lf",
+			function()
+				Snacks.lazygit.log_file()
+			end,
+			desc = "Lazygit log for current file",
+		},
+		{
 			"<leader>go",
 			function()
 				local line = vim.api.nvim_win_get_cursor(0)[1]

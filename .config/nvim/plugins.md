@@ -26,6 +26,7 @@
 | `picker` | ファジーファインダー（`<leader>ff` files, `<leader>fs` grep, `<leader>fb` buffers など。LSPのreferences/definitions等も `lua/config/lsp.lua` で使用） |
 | `terminal` | フロートターミナル（`<leader>t`） |
 | `gitbrowse` | カーソル行のblameコミットをブラウザで開く（`<leader>go`） |
+| `lazygit` | lazygit連携（lazygit.nvimから移行。`<leader>lg` 起動、`<leader>lf` 現在ファイルのログ。カラースキーム自動連携） |
 | `dashboard` | 起動画面（alpha-nvimから移行。NEOVIMヘッダー + New File/Explorer/Find File等のショートカット） |
 | `indent` | インデントガイド表示（indent-blanklineから移行。実線ガイド `│`、カーソル位置のスコープは丸角+矢印のchunk枠 `╭─>` で強調） |
 | その他 | `bigfile` / `input` / `notifier` / `quickfile` / `scope` / `scroll` / `statuscolumn` / `words` |
@@ -74,13 +75,11 @@
 | プラグイン | 用途 | 定義ファイル |
 |---|---|---|
 | `gitsigns.nvim` | Git差分の行表示・操作 | `lua/plugins/gitsigns.lua` |
-| `lazygit.nvim` | LazyGit連携 | `lua/plugins/lazygit.lua` |
 
 ## 診断 / エラー管理
 
 | プラグイン | 用途 | 定義ファイル |
 |---|---|---|
-| `trouble.nvim` | 診断・quickfix・TODOリスト | `lua/plugins/trouble.lua` |
 | `todo-comments.nvim` | TODOコメントのハイライト・ナビゲーション | `lua/plugins/todo-comments.lua` |
 
 ## ユーティリティ

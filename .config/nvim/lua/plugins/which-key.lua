@@ -30,7 +30,6 @@ return {
 			{ "<leader>r", group = "Rename / Restart" },
 			{ "<leader>s", group = "Split Window" },
 			{ "<leader>t", group = "Tab" },
-			{ "<leader>x", group = "Trouble" },
 		})
 	end,
 }
