@@ -10,7 +10,7 @@ local keymap = vim.keymap -- for conciseness
 keymap.set("n", "h", "b", { desc = "Move to previous word" })
 keymap.set("n", "l", "w", { desc = "Move to next word" })
 keymap.set("v", "h", "b", { desc = "Extend selection to previous word" })
-keymap.set("v", "l", "w", { desc = "Extend selection to next word" })
+keymap.set("v", "l", "e", { desc = "Extend selection to end of word" })
 keymap.set("n", "<C-u>", "<C-u>zz", { desc = "Scroll up half page and center" })
 keymap.set("n", "<C-d>", "<C-d>zz", { desc = "Scroll down half page and center" })
 
